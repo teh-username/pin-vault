@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation';
 
 import Home from '../screens/Home';
 import Details from '../screens/Details';
+import NewEntry from '../screens/NewEntry';
 
 export default StackNavigator(
   {
@@ -11,6 +12,9 @@ export default StackNavigator(
     },
     Details: {
       screen: Details,
+    },
+    NewEntry: {
+      screen: NewEntry,
     },
   },
   {
