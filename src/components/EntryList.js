@@ -2,99 +2,15 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 
-const list = [
-  {
-    name: 'Lorem Ipsum',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-  {
-    name: 'Aliquam varius',
-  },
-];
-
-const EntryList = ({ onPress }) => (
+const EntryList = ({ entries, onPress }) => (
   <ScrollView>
     <List>
-      {list.map((l, i) => (
+      {entries.map(({ id, name }) => (
         <ListItem
-          key={i}
-          title={l.name}
+          key={id}
+          title={name}
           onPress={() => {
-            onPress(l.name);
+            onPress(name);
           }}
         />
       ))}

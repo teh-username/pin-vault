@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
-import EntryList from '../components/EntryList';
 
-export default class Home extends React.Component {
+import EntryList from '../components/EntryList';
+import { getEntries } from '../redux/modules/listings';
+
+class Home extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Entries',
     headerLeft: (
@@ -32,6 +35,13 @@ export default class Home extends React.Component {
   }
 
   render() {
-    return <EntryList onPress={this.onEntryPress} />;
+    const { entries } = this.props;
+    return <EntryList entries={entries} onPress={this.onEntryPress} />;
   }
 }
+
+const mapStateToProps = state => ({
+  entries: getEntries(state),
+});
+
+export default connect(mapStateToProps, null)(Home);
