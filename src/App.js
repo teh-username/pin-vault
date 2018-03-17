@@ -1,7 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
 import RootStack from './config/router';
+import reducer from './redux';
 
 const App = () => <RootStack />;
 
-export default App;
+export default (RootApp = () => (
+  <Provider store={createStore(reducer)}>
+    <App />
+  </Provider>
+));
