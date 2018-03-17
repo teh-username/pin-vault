@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 
-import { MODIFY_ENTRY, getEntryDetails } from '../redux/modules/listings';
+import {
+  MODIFY_ENTRY,
+  getEntryDetails,
+  deleteEntry,
+} from '../redux/modules/listings';
 
-const ButtonRow = ({ onEditPress }) => (
+const ButtonRow = ({ onEditPress, onDeletePress }) => (
   <View style={styles.buttonRow}>
     <Button
       title="Edit Code"
@@ -16,9 +20,7 @@ const ButtonRow = ({ onEditPress }) => (
     <Button
       title="Delete Entry"
       icon={{ name: 'delete' }}
-      onPress={() => {
-        console.log('delete');
-      }}
+      onPress={onDeletePress}
       buttonStyle={styles.buttonStyle}
     />
   </View>
@@ -31,6 +33,10 @@ class Details extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleDeletionPress = this.handleDeletionPress.bind(
+      this,
+      props.navigation.state.params.id
+    );
     this.handleEditPress = this.handleEditPress.bind(
       this,
       props.navigation.state.params.id
@@ -41,13 +47,38 @@ class Details extends React.Component {
     this.props.navigation.navigate('Entry', { action: MODIFY_ENTRY, id });
   }
 
+  handleDeletionPress(id) {
+    Alert.alert(
+      'Entry Deletion',
+      'Are you sure? This is irreversible.',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Delete',
+          onPress: () => {
+            this.props.handleDeleteEntry(id);
+            this.props.navigation.popToTop();
+          },
+          style: 'destructive',
+        },
+      ],
+      { cancelable: false }
+    );
+  }
+
   render() {
     const { entryDetails: { name, code } } = this.props;
     return (
       <View style={styles.container}>
         <Text h1>{name}</Text>
         <Text h1>{code}</Text>
-        <ButtonRow onEditPress={this.handleEditPress} />
+        <ButtonRow
+          onEditPress={this.handleEditPress}
+          onDeletePress={this.handleDeletionPress}
+        />
       </View>
     );
   }
@@ -76,11 +107,17 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapDispatchToProps = dispatch => ({
+  handleDeleteEntry(id) {
+    dispatch(deleteEntry(id));
+  },
+});
+
 const mapStateToProps = (
   state,
   { navigation: { state: { params: { id } } } }
 ) => ({
-  entryDetails: getEntryDetails(state, id),
+  entryDetails: getEntryDetails(state, id) || {},
 });
 
-export default connect(mapStateToProps, null)(Details);
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 export const ADD_ENTRY = 'modules/listings/ADD_ENTRY';
 export const MODIFY_ENTRY = 'modules/listings/MODIFY_ENTRY';
+export const DELETE_ENTRY = 'modules/listings/DELETE_ENTRY';
 
 /*
   Sample state:
@@ -20,12 +21,7 @@ export const MODIFY_ENTRY = 'modules/listings/MODIFY_ENTRY';
 */
 
 const initialState = {
-  entries: {
-    '2cf05d': {
-      name: 'Bank 1',
-      code: '412712',
-    },
-  },
+  entries: {},
 };
 
 const entries = (state = initialState.entries, action) => {
@@ -46,6 +42,15 @@ const entries = (state = initialState.entries, action) => {
           code: action.code,
         },
       };
+    case DELETE_ENTRY:
+      return Object.entries(state)
+        .filter(([id, entryDetails]) => action.id !== id)
+        .reduce((previousState, [id, entryDetails]) => {
+          return {
+            ...previousState,
+            [id]: entryDetails,
+          };
+        }, {});
     default:
       return state;
   }
@@ -66,6 +71,11 @@ export const modifyEntry = (id, code) => ({
   type: MODIFY_ENTRY,
   id,
   code,
+});
+
+export const deleteEntry = id => ({
+  type: DELETE_ENTRY,
+  id,
 });
 
 export const getEntries = ({ listings: { entries } }) =>
