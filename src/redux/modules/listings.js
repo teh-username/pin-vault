@@ -5,21 +5,13 @@ const ADD_ENTRY = 'modules/listings/ADD_ENTRY';
 /*
   Sample state:
   {
-    entries: [
-      {
-        id: '2cf05d',
-        name: 'bank_1',
-      },
-      {
-        id: '5d94db',
-        name: 'bank_2',
-      },
-    ],
-    entryDetails: {
+    entries: {
       2cf05d: {
+        name: 'Bank 1',
         code: '1234',
       },
       5d94db: {
+        name: 'Bank 2',
         code: '5678',
       },
     },
@@ -27,14 +19,9 @@ const ADD_ENTRY = 'modules/listings/ADD_ENTRY';
 */
 
 const initialState = {
-  entries: [
-    {
-      id: '2cf05d',
-      name: 'bank_1',
-    },
-  ],
-  entryDetails: {
+  entries: {
     '2cf05d': {
+      name: 'Bank 1',
       code: '412712',
     },
   },
@@ -43,25 +30,11 @@ const initialState = {
 const entries = (state = initialState.entries, action) => {
   switch (action.type) {
     case ADD_ENTRY:
-      return [
-        ...state,
-        {
-          id: action.id,
-          name: action.name,
-        },
-      ];
-    default:
-      return state;
-  }
-};
-
-const entryDetails = (state = initialState.entryDetails, action) => {
-  switch (action.type) {
-    case ADD_ENTRY:
       return {
         ...state,
         [action.id]: {
           code: action.code,
+          name: action.name,
         },
       };
     default:
@@ -71,7 +44,6 @@ const entryDetails = (state = initialState.entryDetails, action) => {
 
 export default combineReducers({
   entries,
-  entryDetails,
 });
 
 export const addEntry = (id, name, code) => ({
@@ -81,6 +53,6 @@ export const addEntry = (id, name, code) => ({
   code,
 });
 
-export const getEntries = ({ listings: { entries } }) => entries;
-export const getEntryDetails = ({ listings: { entryDetails } }, entryName) =>
-  entryDetails[entryName];
+export const getEntries = ({ listings: { entries } }) =>
+  Object.entries(entries);
+export const getEntryDetails = ({ listings: { entries } }, id) => entries[id];

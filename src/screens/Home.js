@@ -29,9 +29,8 @@ class Home extends React.Component {
     this.onEntryPress = this.onEntryPress.bind(this);
   }
 
-  onEntryPress(name) {
-    console.log(name);
-    this.props.navigation.navigate('Details');
+  onEntryPress(id) {
+    this.props.navigation.navigate('Details', { id });
   }
 
   render() {

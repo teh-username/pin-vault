@@ -1,11 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
+
+import { getEntryDetails } from '../redux/modules/listings';
 
 const ButtonRow = () => (
   <View style={styles.buttonRow}>
     <Button
-      title="Edit"
+      title="Edit Code"
       icon={{ name: 'mode-edit' }}
       onPress={() => {
         console.log('heelloo');
@@ -13,7 +16,7 @@ const ButtonRow = () => (
       buttonStyle={styles.buttonStyle}
     />
     <Button
-      title="Delete"
+      title="Delete Entry"
       icon={{ name: 'delete' }}
       onPress={() => {
         console.log('delete');
@@ -29,9 +32,11 @@ class Details extends React.Component {
   };
 
   render() {
+    const { entryDetails: { name, code } } = this.props;
     return (
       <View style={styles.container}>
-        <Text h1>8472838</Text>
+        <Text h1>{name}</Text>
+        <Text h1>{code}</Text>
         <ButtonRow />
       </View>
     );
@@ -61,4 +66,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Details;
+const mapStateToProps = (
+  state,
+  { navigation: { state: { params: { id } } } }
+) => ({
+  entryDetails: getEntryDetails(state, id),
+});
+
+export default connect(mapStateToProps, null)(Details);
