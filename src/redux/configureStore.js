@@ -1,9 +1,10 @@
 import { createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import createSecureStore from 'redux-persist-expo-securestore';
 
 import rootReducer from './reducers';
 
+const storage = createSecureStore();
 const persistConfig = {
   key: 'pin-vault',
   storage,
