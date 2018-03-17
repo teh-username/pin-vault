@@ -7,8 +7,16 @@ import reducer from './redux';
 
 const App = () => <RootStack />;
 
+const store = createStore(reducer);
+
+if (process.env.NODE_ENV === 'development') {
+  store.subscribe(() => {
+    console.log(store.getState());
+  });
+}
+
 export default (RootApp = () => (
-  <Provider store={createStore(reducer)}>
+  <Provider store={store}>
     <App />
   </Provider>
 ));
