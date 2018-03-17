@@ -1,22 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import RootStack from './config/router';
-import reducer from './redux';
+import configureStore from './redux/configureStore';
 
-const App = () => <RootStack />;
-
-const store = createStore(reducer);
-
-if (process.env.NODE_ENV === 'development') {
-  store.subscribe(() => {
-    console.log(store.getState());
-  });
-}
+const { persistor, store } = configureStore();
 
 export default (RootApp = () => (
   <Provider store={store}>
-    <App />
+    <PersistGate loading={null} persistor={persistor}>
+      <RootStack />
+    </PersistGate>
   </Provider>
 ));
