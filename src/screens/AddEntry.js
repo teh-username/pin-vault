@@ -16,7 +16,7 @@ const FormEntry = ({ label, value, onInputChange }) => [
   />,
 ];
 
-class NewEntry extends React.Component {
+class AddEntry extends React.Component {
   static navigationOptions = {
     title: 'New Entry',
   };
@@ -83,4 +83,4 @@ const mapStateToDispatch = dispatch => ({
   },
 });
 
-export default connect(null, mapStateToDispatch)(NewEntry);
+export default connect(null, mapStateToDispatch)(AddEntry);
