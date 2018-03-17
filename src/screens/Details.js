@@ -3,16 +3,14 @@ import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 
-import { getEntryDetails } from '../redux/modules/listings';
+import { MODIFY_ENTRY, getEntryDetails } from '../redux/modules/listings';
 
-const ButtonRow = () => (
+const ButtonRow = ({ onEditPress }) => (
   <View style={styles.buttonRow}>
     <Button
       title="Edit Code"
       icon={{ name: 'mode-edit' }}
-      onPress={() => {
-        console.log('heelloo');
-      }}
+      onPress={onEditPress}
       buttonStyle={styles.buttonStyle}
     />
     <Button
@@ -31,13 +29,25 @@ class Details extends React.Component {
     title: 'Details',
   };
 
+  constructor(props) {
+    super(props);
+    this.handleEditPress = this.handleEditPress.bind(
+      this,
+      props.navigation.state.params.id
+    );
+  }
+
+  handleEditPress(id) {
+    this.props.navigation.navigate('Entry', { action: MODIFY_ENTRY, id });
+  }
+
   render() {
     const { entryDetails: { name, code } } = this.props;
     return (
       <View style={styles.container}>
         <Text h1>{name}</Text>
         <Text h1>{code}</Text>
-        <ButtonRow />
+        <ButtonRow onEditPress={this.handleEditPress} />
       </View>
     );
   }

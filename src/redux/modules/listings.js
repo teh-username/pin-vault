@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
-const ADD_ENTRY = 'modules/listings/ADD_ENTRY';
+export const ADD_ENTRY = 'modules/listings/ADD_ENTRY';
+export const MODIFY_ENTRY = 'modules/listings/MODIFY_ENTRY';
 
 /*
   Sample state:
@@ -37,6 +38,14 @@ const entries = (state = initialState.entries, action) => {
           name: action.name,
         },
       };
+    case MODIFY_ENTRY:
+      return {
+        ...state,
+        [action.id]: {
+          ...state[action.id],
+          code: action.code,
+        },
+      };
     default:
       return state;
   }
@@ -50,6 +59,12 @@ export const addEntry = (id, name, code) => ({
   type: ADD_ENTRY,
   id,
   name,
+  code,
+});
+
+export const modifyEntry = (id, code) => ({
+  type: MODIFY_ENTRY,
+  id,
   code,
 });
 

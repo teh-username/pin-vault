@@ -3,7 +3,7 @@ import { StackNavigator } from 'react-navigation';
 
 import Home from '../screens/Home';
 import Details from '../screens/Details';
-import AddEntry from '../screens/AddEntry';
+import Entry from '../screens/Entry';
 
 export default StackNavigator(
   {
@@ -13,8 +13,8 @@ export default StackNavigator(
     Details: {
       screen: Details,
     },
-    AddEntry: {
-      screen: AddEntry,
+    Entry: {
+      screen: Entry,
     },
   },
   {

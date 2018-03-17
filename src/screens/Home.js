@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
 
 import EntryList from '../components/EntryList';
-import { getEntries } from '../redux/modules/listings';
+import { ADD_ENTRY, getEntries } from '../redux/modules/listings';
 
 class Home extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -18,7 +18,7 @@ class Home extends React.Component {
     headerRight: (
       <Icon
         name="add"
-        onPress={() => navigation.navigate('NewEntry')}
+        onPress={() => navigation.navigate('Entry', { action: ADD_ENTRY })}
         iconStyle={{ right: 10 }}
       />
     ),
