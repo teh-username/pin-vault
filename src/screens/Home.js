@@ -1,9 +1,24 @@
 import React from 'react';
+import { Icon } from 'react-native-elements';
 import EntryList from '../components/EntryList';
 
 export default class Home extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'Entries',
+    headerLeft: (
+      <Icon
+        name="menu"
+        onPress={() => console.log('menuuuuu')}
+        iconStyle={{ left: 10 }}
+      />
+    ),
+    headerRight: (
+      <Icon
+        name="add"
+        onPress={() => console.log('wolololo')}
+        iconStyle={{ right: 10 }}
+      />
+    ),
   };
 
   constructor(props) {
