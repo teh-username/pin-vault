@@ -1,4 +1,4 @@
-## Pin Vault
+## Pin Vault [![Build Status](https://travis-ci.org/teh-username/pin-vault.svg?branch=master)](https://travis-ci.org/teh-username/pin-vault)
 
 A mobile app for storing and rotating pin codes. Bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
