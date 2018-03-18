@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "babel-jest": "^23.0.0-alpha.0",
+    "coveralls": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
@@ -22,21 +23,22 @@
     "ios": "react-native-scripts ios",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "jest": {
     "preset": "jest-expo",
     "transform": {
       "^.+\\.js?$": "babel-jest"
     },
-    "setupFiles": [
-      "./src/setupTests.js"
-    ],
-    "transformIgnorePatterns": [
-      "!node_modules/react-runtime"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
+    "setupFiles": ["./src/setupTests.js"],
+    "transformIgnorePatterns": ["!node_modules/react-runtime"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/",
+      "!src/App.js",
+      "!src/index.js"
     ]
   },
   "dependencies": {
