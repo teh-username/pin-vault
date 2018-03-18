@@ -6,4 +6,13 @@ describe('EntryDetail Component', () => {
     const wrapper = shallow(<EntryDetail name="name" code="code" />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  describe('ButtonRow Component', () => {
+    it('renders as expected', () => {
+      const wrapper = shallow(
+        <ButtonRow onEditPress={() => {}} onDeletePress={() => {}} />
+      );
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
 });

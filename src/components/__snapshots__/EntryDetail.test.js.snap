@@ -1,5 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EntryDetail Component ButtonRow Component renders as expected 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "top": 30,
+    }
+  }
+>
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "#669AE0",
+        "borderColor": "transparent",
+        "borderRadius": 10,
+        "borderWidth": 0,
+        "height": 45,
+        "width": 150,
+      }
+    }
+    icon={
+      Object {
+        "name": "mode-edit",
+      }
+    }
+    onPress={[Function]}
+    title="Edit Code"
+  />
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "#669AE0",
+        "borderColor": "transparent",
+        "borderRadius": 10,
+        "borderWidth": 0,
+        "height": 45,
+        "width": 150,
+      }
+    }
+    icon={
+      Object {
+        "name": "delete",
+      }
+    }
+    onPress={[Function]}
+    title="Delete Entry"
+  />
+</View>
+`;
+
 exports[`EntryDetail Component renders as expected 1`] = `
 <View
   style={

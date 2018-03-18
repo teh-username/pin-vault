@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EntryList component should render as expected 1`] = `
+<ScrollView>
+  <List>
+    <ListItem
+      chevronColor="#bdc6cf"
+      disabled={false}
+      hideChevron={false}
+      key="md391"
+      leftIconUnderlayColor="white"
+      onPress={[Function]}
+      rightIcon={
+        Object {
+          "name": "chevron-right",
+        }
+      }
+      rightTitleNumberOfLines={1}
+      roundAvatar={false}
+      subtitleNumberOfLines={1}
+      switchButton={false}
+      textInputEditable={true}
+      title="Bank 1"
+      titleNumberOfLines={1}
+      underlayColor="white"
+    />
+    <ListItem
+      chevronColor="#bdc6cf"
+      disabled={false}
+      hideChevron={false}
+      key="krni8"
+      leftIconUnderlayColor="white"
+      onPress={[Function]}
+      rightIcon={
+        Object {
+          "name": "chevron-right",
+        }
+      }
+      rightTitleNumberOfLines={1}
+      roundAvatar={false}
+      subtitleNumberOfLines={1}
+      switchButton={false}
+      textInputEditable={true}
+      title="Bank 2"
+      titleNumberOfLines={1}
+      underlayColor="white"
+    />
+    <ListItem
+      chevronColor="#bdc6cf"
+      disabled={false}
+      hideChevron={false}
+      key="jr278"
+      leftIconUnderlayColor="white"
+      onPress={[Function]}
+      rightIcon={
+        Object {
+          "name": "chevron-right",
+        }
+      }
+      rightTitleNumberOfLines={1}
+      roundAvatar={false}
+      subtitleNumberOfLines={1}
+      switchButton={false}
+      textInputEditable={true}
+      title="Bank 3"
+      titleNumberOfLines={1}
+      underlayColor="white"
+    />
+  </List>
+</ScrollView>
+`;
