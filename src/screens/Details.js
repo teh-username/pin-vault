@@ -1,30 +1,13 @@
 import React from 'react';
+import { Alert } from 'react-native';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Alert } from 'react-native';
-import { Button, Text } from 'react-native-elements';
+import EntryDetail from '../components/EntryDetail';
 
 import {
   MODIFY_ENTRY,
   getEntryDetails,
   deleteEntry,
 } from '../redux/modules/listings';
-
-const ButtonRow = ({ onEditPress, onDeletePress }) => (
-  <View style={styles.buttonRow}>
-    <Button
-      title="Edit Code"
-      icon={{ name: 'mode-edit' }}
-      onPress={onEditPress}
-      buttonStyle={styles.buttonStyle}
-    />
-    <Button
-      title="Delete Entry"
-      icon={{ name: 'delete' }}
-      onPress={onDeletePress}
-      buttonStyle={styles.buttonStyle}
-    />
-  </View>
-);
 
 class Details extends React.Component {
   static navigationOptions = {
@@ -72,40 +55,15 @@ class Details extends React.Component {
   render() {
     const { entryDetails: { name, code } } = this.props;
     return (
-      <View style={styles.container}>
-        <Text h1>{name}</Text>
-        <Text h1>{code}</Text>
-        <ButtonRow
-          onEditPress={this.handleEditPress}
-          onDeletePress={this.handleDeletionPress}
-        />
-      </View>
+      <EntryDetail
+        name={name}
+        code={code}
+        onEditPress={this.handleEditPress}
+        onDeletePress={this.handleDeletionPress}
+      />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    top: 30,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  buttonRow: {
-    flex: 1,
-    top: 30,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  buttonStyle: {
-    backgroundColor: '#669AE0',
-    width: 150,
-    height: 45,
-    borderColor: 'transparent',
-    borderWidth: 0,
-    borderRadius: 10,
-  },
-});
 
 const mapDispatchToProps = dispatch => ({
   handleDeleteEntry(id) {
