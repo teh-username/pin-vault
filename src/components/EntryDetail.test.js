@@ -1,9 +1,11 @@
 import React from 'react';
-import App from './App';
+import EntryDetail from './EntryDetail';
 
 import renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const rendered = renderer.create(<App />).toJSON();
+  const rendered = renderer
+    .create(<EntryDetail name="test" code="code" />)
+    .toJSON();
   expect(rendered).toBeTruthy();
 });
