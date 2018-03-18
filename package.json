@@ -4,10 +4,13 @@
   "private": true,
   "devDependencies": {
     "babel-jest": "^23.0.0-alpha.0",
-    "babel-preset-react-native": "^4.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "jest": "^22.4.2",
     "jest-expo": "^25.1.0",
     "jest-react-native": "^18.0.0",
+    "react-dom": "^16.2.0",
     "react-native-scripts": "1.11.1",
     "react-test-renderer": "^16.2.0"
   },
@@ -17,14 +20,24 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "jest": {
     "preset": "jest-expo",
     "transform": {
       "^.+\\.js?$": "babel-jest"
     },
-    "transformIgnorePatterns": ["!node_modules/react-runtime"]
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
+    "transformIgnorePatterns": [
+      "!node_modules/react-runtime"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "dependencies": {
     "expo": "^25.0.0",
