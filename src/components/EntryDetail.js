@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 
-const ButtonRow = ({ onEditPress, onDeletePress }) => (
+export const ButtonRow = ({ onEditPress, onDeletePress }) => (
   <View style={styles.buttonRow}>
     <Button
       title="Edit Code"

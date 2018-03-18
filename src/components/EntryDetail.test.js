@@ -1,11 +1,9 @@
 import React from 'react';
-import EntryDetail from './EntryDetail';
+import EntryDetail, { ButtonRow } from './EntryDetail';
 
-import renderer from 'react-test-renderer';
-
-it('renders without crashing', () => {
-  const rendered = renderer
-    .create(<EntryDetail name="test" code="code" />)
-    .toJSON();
-  expect(rendered).toBeTruthy();
+describe('EntryDetail Component', () => {
+  it('renders as expected', () => {
+    const wrapper = shallow(<EntryDetail name="name" code="code" />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

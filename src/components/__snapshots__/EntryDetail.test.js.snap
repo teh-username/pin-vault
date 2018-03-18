@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EntryDetail Component renders as expected 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "flex-start",
+      "top": 30,
+    }
+  }
+>
+  <TextElement
+    h1={true}
+  >
+    name
+  </TextElement>
+  <TextElement
+    h1={true}
+  >
+    code
+  </TextElement>
+  <ButtonRow />
+</View>
+`;
