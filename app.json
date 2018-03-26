@@ -1,6 +1,20 @@
 {
   "expo": {
+    "name": "Pin Vault",
+    "description": "App for managing pin codes",
+    "icon": "./assets/icon.png",
+    "githubUrl": "https://github.com/teh-username/pin-vault",
+    "orientation": "portrait",
+    "version": "1.0.0",
+    "slug": "pin-vault",
+    "privacy": "public",
     "sdkVersion": "25.0.0",
+    "ios": {
+      "bundleIdentifier": "com.laroberto.pinvault"
+    },
+    "android": {
+      "package": "com.laroberto.pinvault"
+    },
     "splash": {
       "image": "./assets/splash.png"
     }
