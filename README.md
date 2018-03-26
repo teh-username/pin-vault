@@ -13,3 +13,7 @@ A mobile app for storing and rotating pin codes. Bootstrapped with [Create React
 * Security code prompt on open
 * Initiated code rotation (app will generate randomly)
 * Scheduled code rotation (app will generate randomly)
+
+### Attributions:
+
+* Icon made by [Freepik](http://www.freepik.com) from [flaticon.com](https://www.flaticon.com) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
