@@ -2,18 +2,24 @@
 
 A mobile app for storing and rotating pin codes. Bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
-### Features for initial release (Version 1):
+### Release Builds
 
-* Creation of pin codes
-* Modification of pin codes
-* Deletion of pin codes
+* [Expo](https://expo.io/@tehusername/pin-vault)
 
-### Ice Box:
+#### To-Dos:
 
 * Security code prompt on open
 * Initiated code rotation (app will generate randomly)
 * Scheduled code rotation (app will generate randomly)
 
-### Attributions:
+### Release Notes
+
+#### [Version 1](https://github.com/teh-username/pin-vault/releases/tag/v1.0)
+
+* Creation of pin codes
+* Modification of pin codes
+* Deletion of pin codes
+
+##### Attributions:
 
 * Icon made by [Freepik](http://www.freepik.com) from [flaticon.com](https://www.flaticon.com) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
