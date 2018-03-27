@@ -5,6 +5,7 @@ import Home from '../screens/Home';
 import Details from '../screens/Details';
 import Entry from '../screens/Entry';
 import Menu from '../screens/Menu';
+import SetPasscode from '../screens/SetPasscode';
 
 export default StackNavigator(
   {
@@ -19,6 +20,9 @@ export default StackNavigator(
     },
     Menu: {
       screen: Menu,
+    },
+    SetPasscode: {
+      screen: SetPasscode,
     },
   },
   {

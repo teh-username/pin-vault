@@ -13,10 +13,23 @@ class Menu extends React.Component {
     title: 'Settings',
   };
 
+  constructor(props) {
+    super(props);
+
+    this._navigateToPasscodeForm = this._navigateToPasscodeForm.bind(this);
+  }
+
+  _navigateToPasscodeForm() {
+    this.props.navigation.navigate('SetPasscode');
+  }
+
   render() {
     return (
       <ScrollView>
-        <Settings {...this.props} />
+        <Settings
+          {...this.props}
+          handleSetPasscode={this._navigateToPasscodeForm}
+        />
       </ScrollView>
     );
   }
