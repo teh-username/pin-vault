@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormLabel, FormInput } from 'react-native-elements';
 
-const FormRow = ({ label, name, value, onInputChange, editable }) => [
+const FormRow = ({ label, name, value, onInputChange, editable = true }) => [
   <FormLabel key={`${name}_label`}>{label}</FormLabel>,
   <FormInput
     key={`${name}input`}
