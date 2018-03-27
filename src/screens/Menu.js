@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ScrollView } from 'react-native';
+import { Alert, ScrollView } from 'react-native';
 
 import {
   getPasscodeRequirement,
+  getCurrentPasscode,
   togglePasscodeRequirement,
 } from '../redux/modules/settings';
 import Settings from '../components/Settings';
@@ -15,7 +16,6 @@ class Menu extends React.Component {
 
   constructor(props) {
     super(props);
-
     this._navigateToPasscodeForm = this._navigateToPasscodeForm.bind(this);
   }
 
@@ -37,10 +37,26 @@ class Menu extends React.Component {
 
 const mapStateToProps = state => ({
   requirePasscode: getPasscodeRequirement(state),
+  currentPasscode: getCurrentPasscode(state),
 });
 
-const mapDispatchToProps = {
-  handleTogglePasscodeRequirement: togglePasscodeRequirement,
-};
+const mapDispatchToProps = dispatch => ({
+  handleTogglePasscodeRequirement(currentPasscode, requirePasscode) {
+    if (!currentPasscode && !requirePasscode) {
+      Alert.alert(
+        'No Passcode Set',
+        'Please set passcode first before enabling this option',
+        [
+          {
+            text: 'OK',
+          },
+        ],
+        { cancelable: false }
+      );
+      return;
+    }
+    dispatch(togglePasscodeRequirement());
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

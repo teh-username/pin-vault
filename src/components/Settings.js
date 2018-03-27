@@ -4,6 +4,7 @@ import { Card, List, ListItem, Text } from 'react-native-elements';
 
 const Settings = ({
   requirePasscode,
+  currentPasscode,
   handleTogglePasscodeRequirement,
   handleSetPasscode,
 }) => (
@@ -13,7 +14,9 @@ const Settings = ({
       hideChevron
       switched={requirePasscode}
       title="Require Passcode"
-      onSwitch={handleTogglePasscodeRequirement}
+      onSwitch={() =>
+        handleTogglePasscodeRequirement(currentPasscode, requirePasscode)
+      }
     />
     <ListItem title="Set Passcode" onPress={handleSetPasscode} />
   </List>
