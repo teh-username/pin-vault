@@ -9,6 +9,13 @@ import { ADD_ENTRY, getEntries } from '../redux/modules/listings';
 class Home extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Entries',
+    headerRight: (
+      <Icon
+        name="menu"
+        onPress={() => navigation.navigate('Menu')}
+        iconStyle={{ right: 30 }}
+      />
+    ),
   });
 
   constructor(props) {
