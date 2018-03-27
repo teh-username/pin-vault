@@ -6,8 +6,11 @@ import {
   getPasscodeRequirement,
   getCurrentPasscode,
   togglePasscodeRequirement,
+  resetPasscodeSettings,
 } from '../redux/modules/settings';
+
 import Settings from '../components/Settings';
+import Debuggers from '../components/Debuggers';
 
 class Menu extends React.Component {
   static navigationOptions = {
@@ -30,6 +33,7 @@ class Menu extends React.Component {
           {...this.props}
           handleSetPasscode={this._navigateToPasscodeForm}
         />
+        <Debuggers handlePasscodeReset={this.props.onPasscodeSettingsReset} />
       </ScrollView>
     );
   }
@@ -56,6 +60,9 @@ const mapDispatchToProps = dispatch => ({
       return;
     }
     dispatch(togglePasscodeRequirement());
+  },
+  onPasscodeSettingsReset() {
+    dispatch(resetPasscodeSettings());
   },
 });
 

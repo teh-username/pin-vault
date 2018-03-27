@@ -3,6 +3,8 @@ import { combineReducers } from 'redux';
 export const TOGGLE_PASSCODE_REQUIREMENT =
   'modules/settings/TOGGLE_PASSCODE_REQUIREMENT';
 export const SET_PASSCODE = 'modules/settings/SET_PASSCODE';
+export const RESET_PASSCODE_SETTINGS =
+  'modules/settings/RESET_PASSCODE_SETTINGS';
 
 /*
   Sample state:
@@ -19,9 +21,10 @@ const initialState = {
 
 const requirePasscode = (state = initialState.requirePasscode, action) => {
   switch (action.type) {
-    case TOGGLE_PASSCODE_REQUIREMENT: {
+    case TOGGLE_PASSCODE_REQUIREMENT:
       return !state;
-    }
+    case RESET_PASSCODE_SETTINGS:
+      return initialState.requirePasscode;
     default:
       return state;
   }
@@ -31,6 +34,8 @@ const passcodeHash = (state = initialState.passcodeHash, action) => {
   switch (action.type) {
     case SET_PASSCODE:
       return action.passcodeHash;
+    case RESET_PASSCODE_SETTINGS:
+      return initialState.passcodeHash;
     default:
       return state;
   }
@@ -43,6 +48,10 @@ export const togglePasscodeRequirement = () => ({
 export const setPasscode = passcodeHash => ({
   type: SET_PASSCODE,
   passcodeHash,
+});
+
+export const resetPasscodeSettings = () => ({
+  type: RESET_PASSCODE_SETTINGS,
 });
 
 export default combineReducers({

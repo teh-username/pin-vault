@@ -1,6 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
-import { Card, List, ListItem, Text } from 'react-native-elements';
+import { List, ListItem } from 'react-native-elements';
 
 const Settings = ({
   requirePasscode,
@@ -13,7 +12,8 @@ const Settings = ({
       switchButton
       hideChevron
       switched={requirePasscode}
-      title="Require Passcode"
+      title="Passcode Protection"
+      subtitle="Enables passcode when opening the app"
       onSwitch={() =>
         handleTogglePasscodeRequirement(currentPasscode, requirePasscode)
       }
