@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
-import { FormLabel, FormInput, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
+
+import FormRow from '../components/FormRow';
 
 import {
   ADD_ENTRY,
@@ -15,17 +17,6 @@ const modes = {
   add: 'ENTRY_ADD',
   modify: 'ENTRY_MODIFY',
 };
-
-const FormEntry = ({ label, value, onInputChange, editable }) => [
-  <FormLabel key={`${label}_label`}>{label}</FormLabel>,
-  <FormInput
-    key={`${label}_input`}
-    value={value}
-    onChangeText={data => onInputChange(data)}
-    placeholder={`Please enter ${label.toLowerCase()}...`}
-    editable={editable}
-  />,
-];
 
 class Entry extends React.Component {
   static navigationOptions = {
@@ -41,9 +32,8 @@ class Entry extends React.Component {
       code: props.entryDetails ? props.entryDetails.code : null,
       mode: action === ADD_ENTRY ? modes.add : modes.modify,
     };
-    this.handleNameChange = this.handleInputChange.bind(this, 'name');
-    this.handleCodeChange = this.handleInputChange.bind(this, 'code');
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleInputChange(stateKey, data) {
@@ -62,16 +52,18 @@ class Entry extends React.Component {
     const { name, code, mode } = this.state;
     return (
       <View>
-        <FormEntry
+        <FormRow
           label="Name"
+          name="name"
           value={name}
-          onInputChange={this.handleNameChange}
+          onInputChange={this.handleInputChange}
           editable={mode === modes.add}
         />
-        <FormEntry
+        <FormRow
           label="Code"
+          name="code"
           value={code}
-          onInputChange={this.handleCodeChange}
+          onInputChange={this.handleInputChange}
         />
         <Button
           title={mode === modes.add ? 'Add' : 'Modify'}
