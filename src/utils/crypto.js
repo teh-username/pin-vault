@@ -7,3 +7,8 @@ export const hashString = string => {
     .digest()
     .toHex();
 };
+
+export const generateRandomBytes = (length = 6) => {
+  const bytes = forge.random.getBytesSync(8);
+  return forge.util.bytesToHex(bytes).substring(0, length);
+};

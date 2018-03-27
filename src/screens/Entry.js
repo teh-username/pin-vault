@@ -11,7 +11,7 @@ import {
   modifyEntry,
   getEntryDetails,
 } from '../redux/modules/listings';
-import generateId from '../utils/idGenerator';
+import { generateRandomBytes } from '../utils/crypto';
 
 const modes = {
   add: 'ENTRY_ADD',
@@ -90,7 +90,7 @@ const mapStateToDispatch = (
 ) => ({
   handleSubmit(id, name, code) {
     if (action === ADD_ENTRY) {
-      dispatch(addEntry(generateId(), name, code));
+      dispatch(addEntry(generateRandomBytes(), name, code));
     } else {
       dispatch(modifyEntry(id, code));
     }
