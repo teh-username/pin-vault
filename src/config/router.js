@@ -1,31 +1,36 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, SwitchNavigator } from 'react-navigation';
 
 import Home from '../screens/Home';
 import Details from '../screens/Details';
 import Entry from '../screens/Entry';
 import Menu from '../screens/Menu';
 import SetPasscode from '../screens/SetPasscode';
+import Auth from '../screens/Auth';
 
-export default StackNavigator(
+const AppStack = StackNavigator({
+  Home,
+  Details,
+  Entry,
+  Menu,
+  SetPasscode,
+});
+
+const AuthStack = StackNavigator(
   {
-    Home: {
-      screen: Home,
-    },
-    Details: {
-      screen: Details,
-    },
-    Entry: {
-      screen: Entry,
-    },
-    Menu: {
-      screen: Menu,
-    },
-    SetPasscode: {
-      screen: SetPasscode,
-    },
+    Auth,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Auth',
+  }
+);
+
+export default SwitchNavigator(
+  {
+    Auth: AuthStack,
+    App: AppStack,
+  },
+  {
+    initialRouteName: 'Auth',
   }
 );

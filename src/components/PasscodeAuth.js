@@ -4,13 +4,11 @@ import { Button, FormValidationMessage } from 'react-native-elements';
 
 import FormRow from './FormRow';
 
-class PasscodeForm extends React.Component {
+class PasscodeAuth extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       passcode: '',
-      repeatPasscode: '',
-      error: null,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -18,18 +16,7 @@ class PasscodeForm extends React.Component {
   }
 
   handleFormSubmit() {
-    const { passcode, repeatPasscode } = this.state;
-    if (passcode !== repeatPasscode) {
-      this.setState({
-        error: "Passcodes doesn't match",
-      });
-      return;
-    }
-
     this.props.handlePasscodeSubmit(this.state.passcode);
-    this.setState({
-      error: null,
-    });
   }
 
   handleInputChange(stateKey, data) {
@@ -39,7 +26,8 @@ class PasscodeForm extends React.Component {
   }
 
   render() {
-    const { passcode, repeatPasscode, error } = this.state;
+    const { error } = this.props;
+    const { passcode } = this.state;
     return (
       <View>
         <FormRow
@@ -48,19 +36,13 @@ class PasscodeForm extends React.Component {
           value={passcode}
           onInputChange={this.handleInputChange}
         />
-        <FormRow
-          label="Confirm Passcode"
-          name="repeatPasscode"
-          value={repeatPasscode}
-          onInputChange={this.handleInputChange}
-        />
         {error ? <FormValidationMessage>{error}</FormValidationMessage> : null}
         <Button
           title="Set Passcode"
           icon={{ name: 'add' }}
           onPress={this.handleFormSubmit}
           buttonStyle={styles.buttonStyle}
-          disabled={!passcode || !repeatPasscode}
+          disabled={!passcode}
         />
       </View>
     );
@@ -74,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PasscodeForm;
+export default PasscodeAuth;

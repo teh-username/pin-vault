@@ -8,7 +8,8 @@ A mobile app for storing and rotating pin codes. Bootstrapped with [Create React
 
 #### To-Dos:
 
-* Security code prompt on open
+* ~~Security code prompt on open~~
+* Increase code coverage to a not-so dismal level
 * Initiated code rotation (app will generate randomly)
 * Scheduled code rotation (app will generate randomly)
 
