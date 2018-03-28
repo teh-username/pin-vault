@@ -62,7 +62,23 @@ const mapDispatchToProps = dispatch => ({
     dispatch(togglePasscodeRequirement());
   },
   onPasscodeSettingsReset() {
-    dispatch(resetPasscodeSettings());
+    Alert.alert(
+      'Reset Passcode Settings',
+      'This will reset all your passcode settings to default (No passcode). This will not affect your entries.',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress() {
+            dispatch(resetPasscodeSettings());
+          },
+        },
+      ],
+      { cancelable: false }
+    );
   },
 });
 
