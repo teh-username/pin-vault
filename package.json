@@ -46,7 +46,9 @@
       "src/**/*.{js,jsx}",
       "!<rootDir>/node_modules/",
       "!src/App.js",
-      "!src/index.js"
+      "!src/setupTests.js",
+      "!src/index.js",
+      "!src/config/"
     ]
   },
   "dependencies": {
