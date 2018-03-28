@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home screen test should render as expected 1`] = `
+Array [
+  <EntryList
+    key="home_entrylist"
+    onPress={[Function]}
+  />,
+  <View
+    key="home_add_button"
+    style={
+      Object {
+        "alignSelf": "flex-end",
+        "bottom": 25,
+        "justifyContent": "flex-end",
+        "right": 25,
+      }
+    }
+  />,
+]
+`;

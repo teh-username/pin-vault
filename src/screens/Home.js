@@ -6,7 +6,7 @@ import { Icon } from 'react-native-elements';
 import EntryList from '../components/EntryList';
 import { ADD_ENTRY, getEntries } from '../redux/modules/listings';
 
-class Home extends React.Component {
+export class Home extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Entries',
     headerRight: (
