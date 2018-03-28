@@ -19,7 +19,10 @@ const initialState = {
   passcodeHash: null,
 };
 
-const requirePasscode = (state = initialState.requirePasscode, action) => {
+export const requirePasscode = (
+  state = initialState.requirePasscode,
+  action
+) => {
   switch (action.type) {
     case TOGGLE_PASSCODE_REQUIREMENT:
       return !state;
@@ -30,7 +33,7 @@ const requirePasscode = (state = initialState.requirePasscode, action) => {
   }
 };
 
-const passcodeHash = (state = initialState.passcodeHash, action) => {
+export const passcodeHash = (state = initialState.passcodeHash, action) => {
   switch (action.type) {
     case SET_PASSCODE:
       return action.passcodeHash;
