@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings component test should render as expected 1`] = `
+<List>
+  <ListItem
+    chevronColor="#bdc6cf"
+    disabled={false}
+    hideChevron={true}
+    leftIconUnderlayColor="white"
+    onSwitch={[Function]}
+    rightIcon={
+      Object {
+        "name": "chevron-right",
+      }
+    }
+    rightTitleNumberOfLines={1}
+    roundAvatar={false}
+    subtitle="Enables passcode when opening the app"
+    subtitleNumberOfLines={1}
+    switchButton={true}
+    textInputEditable={true}
+    title="Passcode Protection"
+    titleNumberOfLines={1}
+    underlayColor="white"
+  />
+  <ListItem
+    chevronColor="#bdc6cf"
+    disabled={false}
+    hideChevron={false}
+    leftIconUnderlayColor="white"
+    rightIcon={
+      Object {
+        "name": "chevron-right",
+      }
+    }
+    rightTitleNumberOfLines={1}
+    roundAvatar={false}
+    subtitleNumberOfLines={1}
+    switchButton={false}
+    textInputEditable={true}
+    title="Set Passcode"
+    titleNumberOfLines={1}
+    underlayColor="white"
+  />
+</List>
+`;
