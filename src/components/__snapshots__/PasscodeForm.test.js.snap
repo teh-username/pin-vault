@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PasscodeForm component test should render as expected 1`] = `
+<View>
+  <FormRow
+    label="New Passcode"
+    name="passcode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <FormRow
+    label="Confirm New Passcode"
+    name="repeatPasscode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "#669AE0",
+        "top": 40,
+      }
+    }
+    disabled={true}
+    icon={
+      Object {
+        "name": "add",
+      }
+    }
+    onPress={[Function]}
+    title="Set Passcode"
+  />
+</View>
+`;
+
+exports[`PasscodeForm component test should render error field if there are any errors 1`] = `
+<View>
+  <FormRow
+    label="New Passcode"
+    name="passcode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <FormRow
+    label="Confirm New Passcode"
+    name="repeatPasscode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <FormValidationMessage>
+    error
+  </FormValidationMessage>
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "#669AE0",
+        "top": 40,
+      }
+    }
+    disabled={true}
+    icon={
+      Object {
+        "name": "add",
+      }
+    }
+    onPress={[Function]}
+    title="Set Passcode"
+  />
+</View>
+`;
+
+exports[`PasscodeForm component test should render old passcode input if user has previously set passcode 1`] = `
+<View>
+  <FormRow
+    label="Current Passcode"
+    name="currentPasscode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <FormRow
+    label="New Passcode"
+    name="passcode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <FormRow
+    label="Confirm New Passcode"
+    name="repeatPasscode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "#669AE0",
+        "top": 40,
+      }
+    }
+    disabled={true}
+    icon={
+      Object {
+        "name": "add",
+      }
+    }
+    onPress={[Function]}
+    title="Set Passcode"
+  />
+</View>
+`;
