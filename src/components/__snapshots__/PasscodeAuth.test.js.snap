@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PasscodeAuth component test should render as expected 1`] = `
+<View>
+  <FormRow
+    label="Passcode"
+    name="passcode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "#669AE0",
+        "top": 40,
+      }
+    }
+    disabled={true}
+    icon={
+      Object {
+        "name": "add",
+      }
+    }
+    onPress={[Function]}
+    title="Set Passcode"
+  />
+</View>
+`;
+
+exports[`PasscodeAuth component test should render error message if there are any 1`] = `
+<View>
+  <FormRow
+    label="Passcode"
+    name="passcode"
+    onInputChange={[Function]}
+    value=""
+  />
+  <FormValidationMessage>
+    needs triage
+  </FormValidationMessage>
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "#669AE0",
+        "top": 40,
+      }
+    }
+    disabled={true}
+    icon={
+      Object {
+        "name": "add",
+      }
+    }
+    onPress={[Function]}
+    title="Set Passcode"
+  />
+</View>
+`;
