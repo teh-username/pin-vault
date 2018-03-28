@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormRow component test should render props correctly 1`] = `
+Array [
+  <FormLabel
+    key="name_label"
+  />,
+  <FormInput
+    editable={false}
+    key="name_input"
+    normalizeFontSize={true}
+    onChangeText={[Function]}
+    placeholder="Please enter label..."
+    value="value"
+  />,
+]
+`;

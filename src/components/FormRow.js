@@ -4,7 +4,7 @@ import { FormLabel, FormInput } from 'react-native-elements';
 const FormRow = ({ label, name, value, onInputChange, editable = true }) => [
   <FormLabel key={`${name}_label`}>{label}</FormLabel>,
   <FormInput
-    key={`${name}input`}
+    key={`${name}_input`}
     value={value}
     onChangeText={data => onInputChange(name, data)}
     placeholder={`Please enter ${label.toLowerCase()}...`}
