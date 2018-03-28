@@ -9,7 +9,7 @@ import {
 } from '../redux/modules/settings';
 import { hashString } from '../utils/crypto';
 
-class Auth extends React.Component {
+export class Auth extends React.Component {
   static navigationOptions = {
     title: 'Passcode Auth',
   };
