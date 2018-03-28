@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Entry screen test should render as expected 1`] = `
+<View>
+  <FormRow
+    editable={true}
+    label="Name"
+    name="name"
+    onInputChange={[Function]}
+    value={null}
+  />
+  <FormRow
+    label="Code"
+    name="code"
+    onInputChange={[Function]}
+    value={null}
+  />
+  <Button
+    buttonStyle={
+      Object {
+        "backgroundColor": "#669AE0",
+        "top": 40,
+      }
+    }
+    disabled={true}
+    icon={
+      Object {
+        "name": "add",
+      }
+    }
+    onPress={[Function]}
+    title="Add"
+  />
+</View>
+`;

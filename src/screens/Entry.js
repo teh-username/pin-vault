@@ -18,7 +18,7 @@ const modes = {
   modify: 'ENTRY_MODIFY',
 };
 
-class Entry extends React.Component {
+export class Entry extends React.Component {
   static navigationOptions = {
     title: 'New Entry',
   };
