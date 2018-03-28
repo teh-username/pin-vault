@@ -20,12 +20,23 @@ class Auth extends React.Component {
       error: null,
     };
     this._isPasscodeValid = this._isPasscodeValid.bind(this);
+    this._navToHome = this._navToHome.bind(this);
   }
 
   componentDidMount() {
     if (!this.props.requirePasscode) {
-      this.props.navigation.navigate('Home');
+      this._navToHome();
     }
+  }
+
+  _navToHome() {
+    this.props.navigation.navigate('Home');
+    this.props.navigation.dispatch(
+      NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({ routeName: 'Home' })],
+      })
+    );
   }
 
   _isPasscodeValid(passcode) {
@@ -36,14 +47,7 @@ class Auth extends React.Component {
       });
       return;
     }
-
-    this.props.navigation.navigate('Home');
-    this.props.navigation.dispatch(
-      NavigationActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({ routeName: 'Home' })],
-      })
-    );
+    this._navToHome();
   }
 
   render() {
