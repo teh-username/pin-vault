@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Debuggers component test renders as expected 1`] = `
+<List>
+  <ListItem
+    chevronColor="#bdc6cf"
+    disabled={false}
+    hideChevron={true}
+    leftIconUnderlayColor="white"
+    onPress={[Function]}
+    rightIcon={
+      Object {
+        "name": "chevron-right",
+      }
+    }
+    rightTitleNumberOfLines={1}
+    roundAvatar={false}
+    subtitle="Press if unable to enable Passcode Protection"
+    subtitleNumberOfLines={1}
+    switchButton={false}
+    textInputEditable={true}
+    title="Reset Passcode Settings"
+    titleNumberOfLines={1}
+    underlayColor="white"
+  />
+</List>
+`;
