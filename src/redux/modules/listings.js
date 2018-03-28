@@ -24,7 +24,7 @@ const initialState = {
   entries: {},
 };
 
-const entries = (state = initialState.entries, action) => {
+export const entries = (state = initialState.entries, action) => {
   switch (action.type) {
     case ADD_ENTRY:
       return {
