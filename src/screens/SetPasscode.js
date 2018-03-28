@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import PasscodeForm from '../components/PasscodeForm';
-import { setPasscode } from '../redux/modules/settings';
+import { setPasscode, getCurrentPasscode } from '../redux/modules/settings';
 import { hashString } from '../utils/crypto';
 
 class SetPasscode extends React.Component {
@@ -22,4 +22,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(SetPasscode);
+const mapStateToProps = state => ({
+  oldPasscode: getCurrentPasscode(state),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SetPasscode);

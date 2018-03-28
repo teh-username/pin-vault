@@ -15,8 +15,7 @@ const Settings = ({
       title="Passcode Protection"
       subtitle="Enables passcode when opening the app"
       onSwitch={() =>
-        handleTogglePasscodeRequirement(currentPasscode, requirePasscode)
-      }
+        handleTogglePasscodeRequirement(currentPasscode, requirePasscode)}
     />
     <ListItem title="Set Passcode" onPress={handleSetPasscode} />
   </List>

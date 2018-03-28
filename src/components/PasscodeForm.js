@@ -3,11 +3,13 @@ import { View, StyleSheet } from 'react-native';
 import { Button, FormValidationMessage } from 'react-native-elements';
 
 import FormRow from './FormRow';
+import { hashString } from '../utils/crypto';
 
 class PasscodeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentPasscode: '',
       passcode: '',
       repeatPasscode: '',
       error: null,
@@ -18,10 +20,18 @@ class PasscodeForm extends React.Component {
   }
 
   handleFormSubmit() {
-    const { passcode, repeatPasscode } = this.state;
+    const { currentPasscode, passcode, repeatPasscode } = this.state;
+    const { oldPasscode } = this.props;
     if (passcode !== repeatPasscode) {
       this.setState({
-        error: "Passcodes doesn't match",
+        error: "Passcodes don't match",
+      });
+      return;
+    }
+
+    if (oldPasscode && hashString(currentPasscode) !== oldPasscode) {
+      this.setState({
+        error: 'Invalid current passcode',
       });
       return;
     }
@@ -39,17 +49,26 @@ class PasscodeForm extends React.Component {
   }
 
   render() {
-    const { passcode, repeatPasscode, error } = this.state;
+    const { oldPasscode } = this.props;
+    const { currentPasscode, passcode, repeatPasscode, error } = this.state;
     return (
       <View>
+        {oldPasscode ? (
+          <FormRow
+            label="Current Passcode"
+            name="currentPasscode"
+            value={currentPasscode}
+            onInputChange={this.handleInputChange}
+          />
+        ) : null}
         <FormRow
-          label="Passcode"
+          label="New Passcode"
           name="passcode"
           value={passcode}
           onInputChange={this.handleInputChange}
         />
         <FormRow
-          label="Confirm Passcode"
+          label="Confirm New Passcode"
           name="repeatPasscode"
           value={repeatPasscode}
           onInputChange={this.handleInputChange}
