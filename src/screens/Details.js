@@ -9,7 +9,7 @@ import {
   deleteEntry,
 } from '../redux/modules/listings';
 
-class Details extends React.Component {
+export class Details extends React.Component {
   static navigationOptions = {
     title: 'Details',
   };

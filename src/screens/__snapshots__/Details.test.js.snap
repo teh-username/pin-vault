@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details screen test should render as expected 1`] = `
+<EntryDetail
+  code="1234"
+  name="malak"
+  onDeletePress={[Function]}
+  onEditPress={[Function]}
+/>
+`;
