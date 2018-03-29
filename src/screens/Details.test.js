@@ -1,8 +1,12 @@
 import React from 'react';
 import { Alert } from 'react-native';
 
-import { Details } from './Details';
-import { MODIFY_ENTRY } from '../redux/modules/listings';
+import {
+  Details,
+  mapDispatchToProps as dispatchProps,
+  mapStateToProps as stateProps,
+} from './Details';
+import { MODIFY_ENTRY, DELETE_ENTRY } from '../redux/modules/listings';
 
 describe('Details screen test', () => {
   const navigationMock = {
@@ -65,5 +69,67 @@ describe('Details screen test', () => {
     expect(mockDelete.mock.calls.length).toBe(1);
     expect(mockDelete.mock.calls[0][0]).toBe(10);
     expect(navMock.popToTop.mock.calls.length).toBe(1);
+  });
+
+  describe('mapDispatchToProps test', () => {
+    it('should dispatch the delete entry action', () => {
+      const dispatchMock = jest.fn();
+      const props = dispatchProps(dispatchMock);
+      props.handleDeleteEntry(123);
+      expect(dispatchMock.mock.calls.length).toBe(1);
+      expect(dispatchMock.mock.calls[0]).toEqual([
+        { type: DELETE_ENTRY, id: 123 },
+      ]);
+    });
+  });
+
+  describe('mapStateToProps test', () => {
+    it('should get the correct key from state tree', () => {
+      const stateMock = {
+        listings: {
+          entries: {
+            123: 'you found me',
+          },
+        },
+      };
+      const navMock = {
+        navigation: {
+          state: {
+            params: {
+              id: 123,
+            },
+          },
+        },
+      };
+
+      const props = stateProps(stateMock, navMock);
+      expect(props).toEqual({
+        entryDetails: 'you found me',
+      });
+    });
+
+    it('should default to an empty object if entry does not exist', () => {
+      const stateMock = {
+        listings: {
+          entries: {
+            456: 'you found me',
+          },
+        },
+      };
+      const navMock = {
+        navigation: {
+          state: {
+            params: {
+              id: 123,
+            },
+          },
+        },
+      };
+
+      const props = stateProps(stateMock, navMock);
+      expect(props).toEqual({
+        entryDetails: {},
+      });
+    });
   });
 });

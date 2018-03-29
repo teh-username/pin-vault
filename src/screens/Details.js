@@ -65,13 +65,13 @@ export class Details extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   handleDeleteEntry(id) {
     dispatch(deleteEntry(id));
   },
 });
 
-const mapStateToProps = (
+export const mapStateToProps = (
   state,
   { navigation: { state: { params: { id } } } }
 ) => ({
