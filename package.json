@@ -33,22 +33,14 @@
     "transform": {
       "^.+\\.js?$": "babel-jest"
     },
-    "setupFiles": [
-      "./src/setupTests.js"
-    ],
-    "transformIgnorePatterns": [
-      "!node_modules/react-runtime"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
+    "setupFiles": ["./src/setupTests.js"],
+    "transformIgnorePatterns": ["!node_modules/react-runtime"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!<rootDir>/node_modules/",
-      "!src/App.js",
-      "!src/setupTests.js",
-      "!src/index.js",
-      "!src/config/"
+      "src/components/*.{js, jsx}",
+      "src/redux/modules/*.js",
+      "src/screens/*.js",
+      "src/utils/*.js"
     ]
   },
   "dependencies": {
