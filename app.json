@@ -15,7 +15,8 @@
     "android": {
       "package": "com.laroberto.pinvault",
       "versionCode": 1,
-      "icon": "./assets/icon-alpha.png"
+      "icon": "./assets/icon-alpha.png",
+      "permissions": []
     },
     "splash": {
       "image": "./assets/splash.png"
