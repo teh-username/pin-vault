@@ -38,8 +38,8 @@ class PasscodeAuth extends React.Component {
         />
         {error ? <FormValidationMessage>{error}</FormValidationMessage> : null}
         <Button
-          title="Set Passcode"
-          icon={{ name: 'add' }}
+          title="Enter Passcode"
+          icon={{ name: 'lock-open' }}
           onPress={this.handleFormSubmit}
           buttonStyle={styles.buttonStyle}
           disabled={!passcode}

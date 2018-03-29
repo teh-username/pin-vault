@@ -18,11 +18,11 @@ exports[`PasscodeAuth component test should render as expected 1`] = `
     disabled={true}
     icon={
       Object {
-        "name": "add",
+        "name": "lock-open",
       }
     }
     onPress={[Function]}
-    title="Set Passcode"
+    title="Enter Passcode"
   />
 </View>
 `;
@@ -48,11 +48,11 @@ exports[`PasscodeAuth component test should render error message if there are an
     disabled={true}
     icon={
       Object {
-        "name": "add",
+        "name": "lock-open",
       }
     }
     onPress={[Function]}
-    title="Set Passcode"
+    title="Enter Passcode"
   />
 </View>
 `;
