@@ -13,7 +13,8 @@
       "bundleIdentifier": "com.laroberto.pinvault"
     },
     "android": {
-      "package": "com.laroberto.pinvault"
+      "package": "com.laroberto.pinvault",
+      "versionCode": 1
     },
     "splash": {
       "image": "./assets/splash.png"
