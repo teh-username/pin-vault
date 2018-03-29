@@ -1,41 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EntryList component should render CTA if there are no entries yet 1`] = `
-<ScrollView>
-  <View
+<View
+  style={
+    Object {
+      "flex": 1,
+      "left": 10,
+      "top": 10,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
     style={
       Object {
-        "left": 10,
-        "top": 10,
+        "fontSize": 15,
       }
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 15,
-        }
+    Hmm, Looks like you have no entries yet.
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 15,
       }
-    >
-      Hmm, Looks like you have no entries yet.
-    </Text>
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-      style={
-        Object {
-          "fontSize": 15,
-        }
-      }
-    >
-      Hit the add button below to get started!
-    </Text>
-  </View>
-</ScrollView>
+    }
+  >
+    Hit the add button below to get started!
+  </Text>
+</View>
 `;
 
 exports[`EntryList component should render entries if there are any 1`] = `
