@@ -5,7 +5,7 @@ import PasscodeForm from '../components/PasscodeForm';
 import { setPasscode, getCurrentPasscode } from '../redux/modules/settings';
 import { hashString } from '../utils/crypto';
 
-class SetPasscode extends React.Component {
+export class SetPasscode extends React.Component {
   static navigationOptions = {
     title: 'Set Passcode',
   };
@@ -15,7 +15,7 @@ class SetPasscode extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+export const mapDispatchToProps = (dispatch, ownProps) => ({
   handlePasscodeSubmit(passcode) {
     dispatch(setPasscode(hashString(passcode)));
     ownProps.navigation.goBack();

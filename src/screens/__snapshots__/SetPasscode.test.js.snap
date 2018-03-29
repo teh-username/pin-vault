@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SetPasscode screen test should render as expected 1`] = `<PasscodeForm />`;
