@@ -8,12 +8,15 @@ A mobile app for storing and rotating pin codes. Bootstrapped with [Create React
 
 #### To-Dos:
 
-* ~~Security code prompt on open~~
-* Increase code coverage to a not-so dismal level
 * Initiated code rotation (app will generate randomly)
 * Scheduled code rotation (app will generate randomly)
 
 ### Release Notes
+
+#### [Version 1.1](https://github.com/teh-username/pin-vault/releases/tag/v1.1)
+
+* Passcode prompt screen on startup
+* Test coverage increased to a not-so-dismal level
 
 #### [Version 1](https://github.com/teh-username/pin-vault/releases/tag/v1.0)
 
