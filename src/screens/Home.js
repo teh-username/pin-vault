@@ -9,13 +9,6 @@ import { ADD_ENTRY, getEntries } from '../redux/modules/listings';
 export class Home extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Entries',
-    headerRight: (
-      <Icon
-        name="menu"
-        onPress={() => navigation.navigate('Menu')}
-        iconStyle={{ right: 30 }}
-      />
-    ),
   });
 
   constructor(props) {
@@ -30,6 +23,13 @@ export class Home extends React.Component {
   _renderAddButton(navigation) {
     return (
       <View key="home_add_button" style={styles.icon}>
+        <Icon
+          raised
+          reverse
+          name="wrench"
+          type="font-awesome"
+          onPress={() => navigation.navigate('Menu')}
+        />
         <Icon
           raised
           reverse
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
   icon: {
     justifyContent: 'flex-end',
     alignSelf: 'flex-end',
-    right: 25,
+    position: 'absolute',
+    right: 15,
     bottom: 25,
   },
 });

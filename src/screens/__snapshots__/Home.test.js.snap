@@ -13,7 +13,8 @@ Array [
         "alignSelf": "flex-end",
         "bottom": 25,
         "justifyContent": "flex-end",
-        "right": 25,
+        "position": "absolute",
+        "right": 15,
       }
     }
   />,

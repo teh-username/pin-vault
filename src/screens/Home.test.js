@@ -15,9 +15,9 @@ describe('Home screen test', () => {
       navigate: jest.fn(),
     };
     const wrapper = shallow(<Home />);
-    const addButton = shallow(
-      wrapper.instance()._renderAddButton(navMock)
-    ).find(Icon);
+    const addButton = shallow(wrapper.instance()._renderAddButton(navMock))
+      .find(Icon)
+      .at(1);
     addButton.simulate('press');
     expect(navMock.navigate.mock.calls.length).toBe(1);
     expect(navMock.navigate.mock.calls[0]).toEqual([
@@ -28,6 +28,19 @@ describe('Home screen test', () => {
     ]);
   });
 
+  it('should navigate to Settings screen if the wrench button is pressed', () => {
+    const navMock = {
+      navigate: jest.fn(),
+    };
+    const wrapper = shallow(<Home />);
+    const addButton = shallow(wrapper.instance()._renderAddButton(navMock))
+      .find(Icon)
+      .at(0);
+    addButton.simulate('press');
+    expect(navMock.navigate.mock.calls.length).toBe(1);
+    expect(navMock.navigate.mock.calls[0]).toEqual(['Menu']);
+  });
+
   it('should navigate to Details screen if an entry is pressed', () => {
     const navMock = {
       navigate: jest.fn(),
@@ -36,20 +49,5 @@ describe('Home screen test', () => {
     wrapper.instance().onEntryPress(2);
     expect(navMock.navigate.mock.calls.length).toBe(1);
     expect(navMock.navigate.mock.calls[0]).toEqual(['Details', { id: 2 }]);
-  });
-
-  it('should navigate to menu when icon is pressed', () => {
-    const navMock = {
-      navigation: {
-        navigate: jest.fn(),
-      },
-    };
-    const wrapper = shallow(<Home navigation={navMock} />);
-    const icon = shallow(
-      wrapper.instance().constructor.navigationOptions(navMock).headerRight
-    ).simulate('press');
-
-    expect(navMock.navigation.navigate.mock.calls.length).toBe(1);
-    expect(navMock.navigation.navigate.mock.calls[0]).toEqual(['Menu']);
   });
 });
