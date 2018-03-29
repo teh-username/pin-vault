@@ -26,7 +26,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
-    "exp-publish": "exp publish"
+    "exp-publish": "exp publish",
+    "exp-build-android": "exp build:android"
   },
   "jest": {
     "preset": "jest-expo",
