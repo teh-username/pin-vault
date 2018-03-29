@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu screen test should render as expected 1`] = `
+<ScrollView>
+  <Settings
+    handleSetPasscode={[Function]}
+  />
+  <Debuggers />
+</ScrollView>
+`;

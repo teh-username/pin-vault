@@ -12,7 +12,7 @@ import {
 import Settings from '../components/Settings';
 import Debuggers from '../components/Debuggers';
 
-class Menu extends React.Component {
+export class Menu extends React.Component {
   static navigationOptions = {
     title: 'Settings',
   };
@@ -44,7 +44,7 @@ const mapStateToProps = state => ({
   currentPasscode: getCurrentPasscode(state),
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   handleTogglePasscodeRequirement(currentPasscode, requirePasscode) {
     if (!currentPasscode && !requirePasscode) {
       Alert.alert(
