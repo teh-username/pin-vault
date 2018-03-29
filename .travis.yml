@@ -10,9 +10,9 @@ cache:
 script:
   - npm test -- --coverage
 
-after_script:
+after_success:
   - COVERALLS_REPO_TOKEN=$COVERALLS_REPO_KEY npm run coveralls
 
-after_success:
+after_script:
   - chmod +x ./publish.sh
   - ./publish.sh
