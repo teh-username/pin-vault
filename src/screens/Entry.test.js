@@ -1,7 +1,11 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
 
-import { Entry } from './Entry';
+import {
+  Entry,
+  mapStateToDispatch as dispatchProps,
+  mapStateToProps as stateProps,
+} from './Entry';
 import FormRow from '../components/FormRow';
 import { ADD_ENTRY, MODIFY_ENTRY } from '../redux/modules/listings';
 
@@ -108,5 +112,113 @@ describe('Entry screen test', () => {
       'mockName',
       'mockCode',
     ]);
+  });
+
+  describe('mapStateToDispatch test', () => {
+    it('should dispatch the add action if current action is adding of entry', () => {
+      const dispatchMock = jest.fn();
+      const navMock = {
+        navigation: {
+          state: {
+            params: {
+              action: ADD_ENTRY,
+            },
+          },
+        },
+      };
+
+      const props = dispatchProps(dispatchMock, navMock);
+      props.handleSubmit('testId', 'testName', 'testCode');
+      expect(dispatchMock.mock.calls.length).toBe(1);
+      expect(dispatchMock.mock.calls[0]).toEqual([
+        {
+          type: ADD_ENTRY,
+          id: expect.any(String),
+          name: 'testName',
+          code: 'testCode',
+        },
+      ]);
+    });
+
+    it('should dispatch entry modify if current action is not of adding entry', () => {
+      const dispatchMock = jest.fn();
+      const navMock = {
+        navigation: {
+          state: {
+            params: {
+              action: MODIFY_ENTRY,
+            },
+          },
+        },
+      };
+
+      const props = dispatchProps(dispatchMock, navMock);
+      props.handleSubmit('testId', 'testName', 'testCode');
+      expect(dispatchMock.mock.calls.length).toBe(1);
+      expect(dispatchMock.mock.calls[0]).toEqual([
+        {
+          type: MODIFY_ENTRY,
+          id: 'testId',
+          code: 'testCode',
+        },
+      ]);
+    });
+  });
+
+  describe('mapStateToProps', () => {
+    it('should retrieve the correct entry details if id is not null', () => {
+      const stateMock = {
+        listings: {
+          entries: {
+            12: {
+              data: 'nope nothing to see here',
+            },
+          },
+        },
+      };
+      const navMock = {
+        navigation: {
+          state: {
+            params: {
+              id: 12,
+            },
+          },
+        },
+      };
+
+      const props = stateProps(stateMock, navMock);
+      expect(props).toEqual({
+        entryDetails: {
+          data: 'nope nothing to see here',
+          id: 12,
+        },
+      });
+    });
+
+    it('should return a null object if id is falsy', () => {
+      const stateMock = {
+        listings: {
+          entries: {
+            12: {
+              data: 'nope nothing to see here',
+            },
+          },
+        },
+      };
+      const navMock = {
+        navigation: {
+          state: {
+            params: {
+              id: '',
+            },
+          },
+        },
+      };
+
+      const props = stateProps(stateMock, navMock);
+      expect(props).toEqual({
+        entryDetails: null,
+      });
+    });
   });
 });

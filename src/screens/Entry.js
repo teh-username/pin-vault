@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToDispatch = (
+export const mapStateToDispatch = (
   dispatch,
   { navigation: { state: { params: { action } } } }
 ) => ({
@@ -97,7 +97,7 @@ const mapStateToDispatch = (
   },
 });
 
-const mapStateToProps = (
+export const mapStateToProps = (
   state,
   { navigation: { state: { params: { id } } } }
 ) => ({
